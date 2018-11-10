@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Case Problem 3
+   
+   Design Styles for the Chupacabra Music Fest
+   Author: Gabriel Hernandez 
+   Date: 11/8/18  
+   
+   Filename: cf_effects.css
+
+*/
+
+/* HTML Styles */
+/* The backgruond is loaded useing a url that is saved in the smae folder as a the html page and has a fixed postions this makes it so the picture stays witht the user as they scrol ddown the page.  */
+html {
+    background: url(cf_back1.png) fixed;
+    background-size: 100%;     
+}
+
+
+/* Body Styles */
+/* Just in case the image does not load the background color will substitues for the image */
+body {
+    background-color: rgba(255, 255, 255, 0.3);;
+}
+
+
+/* Body Header Styles */
+/* here there is an oapcity of .5 so the user can see through the header to see the background. */
+body header {
+    background-color: rgba(51, 51, 51, 0.5);
+}
+
+
+/* Aside Styles */
+/* The border set to double creats a border made of two line and the corners are rounded around a 30px raduis. */
+section aside {
+    border: 10px double rgba(92, 42, 8, 0.3);
+    border-radius: 30px; 
+    
+}
+
+/* ONly the top and left right corners are rounded to fit the border they are in. */
+section aside h1 {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/*  No visible change but when making transformations it creats a place for the slectors to work around */
+section#left {
+    perspective: 450px;
+}
+
+/* Here the transformations moves around the Y axis, Making it look like the right edge of the elemnt is sunk into the page. This only effects one the left side if it also sleected the right then the right side of the img would be going the same direction as the left which does not fit the flow */
+section#left  aside {
+    transform: rotateY(25deg);
+}
+
+/*  No visible change but when making transformations it creats a place for the slectors to work around */
+section#right{
+    perspective: 450px;
+} 
+
+
+section#right aside {
+    transform: rotateY(-25deg);
+}
+/* Cube Styles */
+/* Here the the styles act as a sort of reset style for the next couple selectors. I puts everything in the same place with the same perspective and size.  */
+div#cube{
+    position: relative;
+    margin: 180px auto 150px auto;
+    width: 400px;
+    height: 400px;
+    perspective: 450px;
+}
+
+/* Similar to the previous selector it's sets up the coming selectors */
+div.cube_face {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+}
+
+/* Here the img is sunk into the the page 50 px away from the its perspective. */
+div#cube_front {
+    transform: translateZ(-50px);
+}
+
+/* The img is slid hoozontally left 200px and rotated 90 deg on its y axis */
+div#cube_left {
+    transform: translateX(-200px) rotateY(90deg);
+}
+
+/* SLide over 200 px right rotated counter clockwise 90deg */
+div#cube_right {
+    transform: translateX(200px) rotateY(-90deg);
+}
+
+/* Slid down 200px */
+div#cube_top {
+    transform: translateY(-200px) rotateX(-90deg);
+}
+
+/* slid up 200px */
+div#cube_bottom{
+    transform: translateY(200px) rotateX(90deg);
+}
